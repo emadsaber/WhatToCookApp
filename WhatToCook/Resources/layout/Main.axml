@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <Button
+        android:text="يا ترى هناكل ايه؟؟"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCook"
+        android:textSize="50px" />
+    <Button
+        android:text="عرض كل الأكلات"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnViewAll"
+        android:visibility="visible"
+        android:textSize="40px" />
+    <Button
+        android:text="إضافة أكلة جديدة"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAddNew"
+        android:visibility="invisible" />
+</LinearLayout>

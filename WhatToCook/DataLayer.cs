@@ -38,8 +38,7 @@ namespace WhatToCook
             {
                 if (conn == null) return false;
                 //var res = conn.Execute($"INSERT INTO FOODS(FoodName) VALUES('{foodName}')");
-                var res = conn.Table<Foods>().Append(new Foods() { FoodName = foodName });
-                conn.Commit();
+                var res = conn.Insert(new Foods() { FoodName = foodName });
                 return true;
             }
             catch

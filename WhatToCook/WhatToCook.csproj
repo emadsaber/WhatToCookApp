@@ -61,6 +61,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add.cs" />
     <Compile Include="DataLayer.cs" />
     <Compile Include="Foods.cs" />
     <Compile Include="MainActivity.cs" />
@@ -75,6 +76,9 @@
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\view.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Add.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

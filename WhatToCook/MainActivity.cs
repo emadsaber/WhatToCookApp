@@ -13,7 +13,6 @@ namespace WhatToCook
     [Activity(Label = "أطبخ إيه؟", MainLauncher = true, Icon ="@drawable/icon")]
     public class MainActivity : Activity
     {
-        XmlDocument doc;
         Button btnWhatToCook, btnViewAll, btnAddNew;
         DataLayer dl;
         List<Foods> foods;
@@ -57,25 +56,20 @@ namespace WhatToCook
         }
         private void BtnAddNew_Click(object sender, EventArgs e)
         {
-            
+            var intent = new Intent(this, typeof(Add));
+            StartActivity(intent);
         }
         private void BtnWhatToCook_Click(object sender, System.EventArgs e)
         {
-            var length = doc.ChildNodes[1].ChildNodes.Count;
+            var length = dl.GetAllFoods().Count;
 
             var index = new Random().Next(length - 1);
-            var text = doc.ChildNodes[1].ChildNodes[index].InnerText;
+            var text = dl.GetAllFoods()[index].FoodName;
 
             Toast.MakeText(this.ApplicationContext, text, ToastLength.Long).Show();
         }
         #endregion
         #region Methods
-        private void SaveFoods()
-        {
-            //System.IO.File.WriteAllText("")
-            doc.Save(("foods.xml"));
-            LoadFoods();
-        }
         private void LoadFoods()
         {
             //string content;
@@ -88,15 +82,15 @@ namespace WhatToCook
             //doc.LoadXml(content);
             foods = dl.GetAllFoods();
         }
-        //private string GetAllFoods()
-        //{
-        //    var content = string.Empty;
-        //    foreach (XmlNode node in doc.ChildNodes[1].ChildNodes)
-        //    {
-        //        content += node.InnerText + "\n";
-        //    }
-        //    return content;
-        //}
+        private string GetAllFoods()
+        {
+            var content = string.Empty;
+            foreach (var food in dl.GetAllFoods())
+            {
+                content += food.FoodName + "\n";
+            }
+            return content;
+        }
         #endregion
     }
 }
